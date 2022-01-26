@@ -10,7 +10,7 @@
             $message = 'Please Login';
             break;
         default:
-            $message = 'Error!';
+            $message = 'You are not authorized!';
     }
 
     echo $message;
