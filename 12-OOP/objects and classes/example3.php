@@ -5,19 +5,19 @@
 
         public function deposit($amount){
             if($amount > 0){
-                $this->$balance += $amount;
+                $this->balance += $amount;
             }
         }
     }
 
     $account = new BankAccount;
 
-    $account->$accountNumber = 1;
-    $account->$balance = 100;
+    $account->accountNumber = 1;
+    $account->balance = 100;
 
     $account->deposit(22);
 
-    echo "Your account balance is: " . $account->$balance;
+    echo "Your account balance is: " . $account->balance;
 
 
 ?>

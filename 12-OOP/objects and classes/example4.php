@@ -20,8 +20,8 @@
 
     $account = new BankAccount;
 
-    $account->$accountNumber = 1;
-    $account->$balance = 100;
+    $account->accountNumber = 1;
+    $account->balance = 100;
 
     $respons =  $account->withdraw(122);
 
