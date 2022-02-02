@@ -32,12 +32,13 @@
 
         public function getAllItems(){
             self::getTodoArray();
-            $arrayCount = count($this->_dataArray());
-            $arrayKeys = array_keys($this->_dataArray);
+            $arrayCount = count($this->_dataArray);
+            
             
             for($i=0; $i< $arrayCount; $i++){
                 $newi = $i;
-                echo $this->_dataArray[$i]->name;
+                echo '<p> Title: ' . $this->_dataArray[$i]['title'] .
+                 ' name: ' . $this->_dataArray[$i]['name'] . '</p>';
             }
         }
     }

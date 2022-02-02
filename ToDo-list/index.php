@@ -2,12 +2,12 @@
     require_once 'classes/Todo.php';
     require 'classes/TodoManager.php';
     $newItem = new Todo();
+    $todoManager = new TodoManager("data.json");
 
     if(isset($_POST['title'], $_POST['name'])){
 
         $newItem->title = htmlspecialchars($_POST['title']);
         $newItem->name = htmlspecialchars($_POST['name']);
-        $todoManager = new TodoManager("data.json");
         $todoManager->insertItem($newItem);
     }
 
@@ -30,7 +30,11 @@
             <input type="text" name="name">
             <input type="submit" value="Add" name="submitButton">
         </form>
-
+        <div>
+            <?php
+                $todoManager->getAllItems();
+            ?>
+        </div>
 
     </div>
 </body>
