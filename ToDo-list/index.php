@@ -2,11 +2,15 @@
     require_once 'classes/Todo.php';
     require 'classes/TodoManager.php';
     $newItem = new Todo();
-    $newItem->title = htmlspecialchars($_POST['title']);
-    $newItem->name = htmlspecialchars($_POST['name']);
-    echo var_dump($newItem);
-    $todoManager = new TodoManager("data.json");
-    $todoManager->insertItem($newItem);
+
+    if(isset($_POST['title'], $_POST['name'])){
+
+        $newItem->title = htmlspecialchars($_POST['title']);
+        $newItem->name = htmlspecialchars($_POST['name']);
+        $todoManager = new TodoManager("data.json");
+        $todoManager->insertItem($newItem);
+    }
+
 ?>
 
 
@@ -20,7 +24,7 @@
 </head>
 <body>
     <div>
-        <form action="" method="post">
+        <form action="index.php" method="post">
             <p>Add a new task</p>
             <input type="text" name="title">
             <input type="text" name="name">
