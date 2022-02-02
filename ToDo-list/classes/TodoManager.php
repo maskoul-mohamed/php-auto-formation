@@ -7,30 +7,26 @@
             if ($dataName) {
                 $this->_dataName = 'saves/' . $dataName;
             } else {
-                $this->_dataName = "saves/data.txt";
+                $this->_dataName = "saves/data.json";
             }
         }
 
         private function getTodoArray(){
-            $handel = fopen($this->_dataName, "r");
-            $this->_dataArrayJson = fread($handel, filesize ($this->_dataName));
+            $this->_dataArrayJson= file_get_contents($this->_dataName);
+            // $handel = fopen($this->_dataName, "r");
+            // $this->_dataArrayJson = fread($handel, filesize ($this->_dataName));
             $this->_dataArray = json_decode($this->_dataArrayJson, true);
-            fclose($handel);
+            // fclose($handel);
         }
 
-        public function setTodoArray($newData){
-            // $this->_dataArrayJson = json_encode($this->_dataArray + $newData);
-            echo $this->_dataArray;
-            $handle = fopen($this->_dataName, "w");
-            fwrite($handle, $this->_dataArrayJson);
-            fclose($handle);
-            self::getTodoArray();
-        }
+        
 
         public function insertItem($newItem){
             self::getTodoArray();
-            $newData = array($newItem);
-            self::setTodoArray($newData);
+            array_push($this->_dataArray, $newItem);
+            $this->_dataArrayJson = json_encode($this->_dataArray);
+            file_put_contents($this->_dataName, $this->_dataArrayJson);
+            self::getTodoArray();
         }
 
 

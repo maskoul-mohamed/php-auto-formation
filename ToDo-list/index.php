@@ -4,8 +4,8 @@
     $newItem = new Todo();
     $newItem->title = htmlspecialchars($_POST['title']);
     $newItem->name = htmlspecialchars($_POST['name']);
-
-    $todoManager = new TodoManager("data.txt");
+    echo var_dump($newItem);
+    $todoManager = new TodoManager("data.json");
     $todoManager->insertItem($newItem);
 ?>
 
