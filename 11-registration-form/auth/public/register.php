@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://www.phptutorial.net/app/css/style.css">
-    <title>Register</title>
-</head>
-<body>
-<main>
+<?php
+    require_once __DIR__ . '/../src/libs/boostrap.php';
+?>
+
+<?php view('header', ['title' => 'Register'])?>
     <form action="register.php" method="post">
         <h1>Sign Up</h1>
         <div>
@@ -39,3 +34,8 @@
 </main>
 </body>
 </html>
+
+<?php
+    require_once __DIR__ . '/../src/inc/footer.php';
+
+?>
